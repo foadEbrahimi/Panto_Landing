@@ -2,7 +2,15 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        gilroyBold: ['gilroyBold'],
+        gilroyHeavy: ['gilroyHeavy'],
+        gilroyLight: ['gilroyLight'],
+        gilroyMedium: ['gilroyMedium'],
+        gilroyRegular: ['gilroyRegular'],
+      },
+    },
   },
   plugins: [],
 };

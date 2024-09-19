@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: gilroyBold;
+  src: url(./assets/fonts/Gilroy-Bold.ttf);
+}
+@font-face {
+  font-family: gilroyHeavy;
+  src: url(./assets/fonts/Gilroy-Heavy.ttf);
+}
+@font-face {
+  font-family: gilroyLight;
+  src: url(./assets/fonts/Gilroy-Medium.ttf);
+}
+@font-face {
+  font-family: gilroyMedium;
+  src: url(./assets/fonts/Gilroy-Medium.ttf);
+}
+@font-face {
+  font-family: gilroyRegular;
+  src: url(./assets/fonts/Gilroy-Regular.ttf);
+}
+
+#hero {
+  height: 100dvh;
+  width: 100%;
+  background: url(./assets/images/bg3.jpg) center/cover no-repeat;
+}
+#navbar {
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.15);
+
+  backdrop-filter: blur(5px);
+}
