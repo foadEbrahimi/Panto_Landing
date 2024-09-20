@@ -2,17 +2,18 @@ import React from 'react';
 import Navbar from './Navbar';
 
 import search from '../assets/images/svgs/search.svg';
+
 export default function Hero() {
   return (
-    <div id="hero">
+    <div id="hero" className="relative">
       <Navbar />
-      <div className="mt-28">
-        <h1 className="text-white leading-[4.5rem] text-6xl font-gilroyBold text-center">
+      <div className="mt-36 px-4">
+        <h1 className="text-white xl:leading-[4.5rem] md:text-5xl xl:text-6xl lg:text-5xl text-4xl font-gilroyBold text-center">
           Make Your Interior More <br /> Minimalistis & Modern
         </h1>
-        <p className="font-gilroyRegular text-center text-xl mt-5 text-white">
-          Turn your room with panto into a lot more minimalist <br /> and modern
-          with ease and speed
+        <p className="font-gilroyRegular text-center lg:text-xl mt-5 text-white">
+          Turn your room with panto into a lot more minimalist{' '}
+          <br className="hidden lg:block" /> and modern with ease and speed
         </p>
         <div
           id="navbar"
