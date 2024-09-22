@@ -15,3 +15,22 @@ export const Why = [
     sub: 'We provide many unique work space choices so that you can choose the workspace to your liking.',
   },
 ];
+
+export const NavListProduct = [
+  {
+    id: 1,
+    leble: 'Chair',
+  },
+  {
+    id: 2,
+    leble: 'Beds',
+  },
+  {
+    id: 3,
+    leble: 'Sofa',
+  },
+  {
+    id: 4,
+    leble: 'Lamp',
+  },
+];
