@@ -9,6 +9,9 @@ export default {
         gilroyLight: ['gilroyLight'],
         gilroyMedium: ['gilroyMedium'],
         gilroyRegular: ['gilroyRegular'],
+
+        IntroRegular: ['IntroRegular'],
+        IntroSemiBold: ['IntroSemiBold'],
       },
     },
   },

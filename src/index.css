@@ -1,27 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* fonts */
 
+/* gilroy font */
 @font-face {
   font-family: gilroyBold;
-  src: url(./assets/fonts/Gilroy-Bold.ttf);
+  src: url(./assets/fonts/Gilroy/Gilroy-Bold.ttf);
 }
 @font-face {
   font-family: gilroyHeavy;
-  src: url(./assets/fonts/Gilroy-Heavy.ttf);
+  src: url(./assets/fonts/Gilroy/Gilroy-Heavy.ttf);
 }
 @font-face {
   font-family: gilroyLight;
-  src: url(./assets/fonts/Gilroy-Medium.ttf);
+  src: url(./assets/fonts/Gilroy/Gilroy-Medium.ttf);
 }
 @font-face {
   font-family: gilroyMedium;
-  src: url(./assets/fonts/Gilroy-Medium.ttf);
+  src: url(./assets/fonts/Gilroy/Gilroy-Medium.ttf);
 }
 @font-face {
   font-family: gilroyRegular;
-  src: url(./assets/fonts/Gilroy-Regular.ttf);
+  src: url(./assets/fonts/Gilroy/Gilroy-Regular.ttf);
+}
+
+/* Intro font */
+@font-face {
+  font-family: IntroRegular;
+  src: url(./assets/fonts/Intro/Inter-Regular.ttf);
+}
+@font-face {
+  font-family: IntroSemiBold;
+  src: url(./assets/fonts/Intro/Inter-SemiBold.ttf);
 }
 
 #hero {
