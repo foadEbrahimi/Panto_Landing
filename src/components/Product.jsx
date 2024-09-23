@@ -3,6 +3,9 @@ import React from 'react';
 import Layout from '../Layout';
 import NavList from './Product/NavList';
 import Cart from './Product/Cart/Cart';
+
+import longArrow from '../assets/images/svgs/long-arrow-right.svg';
+
 export default function Product() {
   return (
     <Layout bg="#F7F7F7">
@@ -11,11 +14,16 @@ export default function Product() {
           Best Selling Product
         </h1>
         <NavList />
-        <div className='flex flex-wrap gap-14 mt-14 items-center justify-center'>
+        <div className="flex flex-wrap gap-14 mt-14 items-center justify-center">
           <Cart />
           <Cart />
           <Cart />
           <Cart />
+        </div>
+
+        <div className="text-[#E58411] cursor-pointer flex items-center justify-center mt-12 gap-2">
+          <span>View All</span>
+          <img src={longArrow} alt="svg" className="pt-1" />
         </div>
       </div>
     </Layout>
