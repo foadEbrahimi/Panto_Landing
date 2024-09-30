@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Why from './components/Why';
 import Product from './components/Product';
 import Experience from './components/Experience';
+import Materials from './components/Materials';
 export default function App() {
   return (
     <div className="overflow-hidden">
@@ -11,6 +12,7 @@ export default function App() {
       <Why />
       <Product />
       <Experience />
+      <Materials />
     </div>
   );
 }
