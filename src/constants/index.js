@@ -1,3 +1,7 @@
+import img1 from '../assets/images/Testimonials/img1.png';
+import img2 from '../assets/images/Testimonials/img2.png';
+import img3 from '../assets/images/Testimonials/img3.png';
+
 export const Why = [
   {
     id: 1,
@@ -32,5 +36,20 @@ export const NavListProduct = [
   {
     id: 4,
     leble: 'Lamp',
+  },
+];
+
+export const Testimonials = [
+  {
+    id: 1,
+    img: img1,
+  },
+  {
+    id: 1,
+    img: img2,
+  },
+  {
+    id: 1,
+    img: img3,
   },
 ];

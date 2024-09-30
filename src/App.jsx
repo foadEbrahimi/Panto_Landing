@@ -5,6 +5,7 @@ import Why from './components/Why';
 import Product from './components/Product';
 import Experience from './components/Experience';
 import Materials from './components/Materials';
+import Testimonials from './components/Testimonials';
 export default function App() {
   return (
     <div className="overflow-hidden">
@@ -13,6 +14,7 @@ export default function App() {
       <Product />
       <Experience />
       <Materials />
+      <Testimonials />
     </div>
   );
 }
