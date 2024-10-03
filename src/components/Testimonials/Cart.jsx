@@ -4,7 +4,7 @@ import stars from '../../assets/images/Testimonials/stars.png';
 
 export default function Cart({ img, avatar, name, job, desc }) {
   return (
-    <div className="relative w-full h-full max-h-[506px] flex">
+    <div className="relative w-full h-full max-h-[506px] shadow-xl rounded-2xl flex">
       <img
         src={img}
         className="absolute top-0 left-0 w-full h-full"

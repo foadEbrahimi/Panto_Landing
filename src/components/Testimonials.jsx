@@ -26,7 +26,7 @@ export default function Testimonials() {
         <div className="w-full 2xl:px-32">
           <Swiper
             modules={[Navigation]}
-            className="h-[30rem] w-full relative"
+            className="h-[40rem] w-full relative rounded-2xl"
             spaceBetween={50}
             navigation={{
               nextEl: '.swiper-button-prev',
