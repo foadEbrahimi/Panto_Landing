@@ -67,4 +67,20 @@ export const Testimonials = [
     job: 'Karyawan Swasta',
     desc: '“Sangat terjangkau untuk kantong saya yang tidak terlalu banyak“',
   },
+  {
+    id: 1,
+    img: img2,
+    avatar: avatar2,
+    name: 'Ibuk Sukijan',
+    job: 'Ibu Rumah Tangga',
+    desc: '“Makasih Panto, aku sekarang berasa tinggal di apartment karena barang-barang yang terlihat mewah“',
+  },
+  {
+    id: 1,
+    img: img3,
+    avatar: avatar3,
+    name: 'Mpok Ina',
+    job: 'Karyawan Swasta',
+    desc: '“Sangat terjangkau untuk kantong saya yang tidak terlalu banyak“',
+  },
 ];
