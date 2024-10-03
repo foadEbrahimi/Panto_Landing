@@ -1,6 +1,9 @@
 import img1 from '../assets/images/Testimonials/img1.png';
 import img2 from '../assets/images/Testimonials/img2.png';
 import img3 from '../assets/images/Testimonials/img3.png';
+import avatar1 from '../assets/images/Testimonials/avatar/avatar1.png';
+import avatar2 from '../assets/images/Testimonials/avatar/avatar2.png';
+import avatar3 from '../assets/images/Testimonials/avatar/avatar3.png';
 
 export const Why = [
   {
@@ -43,13 +46,25 @@ export const Testimonials = [
   {
     id: 1,
     img: img1,
+    avatar: avatar1,
+    name: 'Bang Upin',
+    job: 'Pedagang Asongan',
+    desc: '“Terimakasih banyak, kini ruanganku menjadi lebih mewah dan terlihat mahal“',
   },
   {
     id: 1,
     img: img2,
+    avatar: avatar2,
+    name: 'Ibuk Sukijan',
+    job: 'Ibu Rumah Tangga',
+    desc: '“Makasih Panto, aku sekarang berasa tinggal di apartment karena barang-barang yang terlihat mewah“',
   },
   {
     id: 1,
     img: img3,
+    avatar: avatar3,
+    name: 'Mpok Ina',
+    job: 'Karyawan Swasta',
+    desc: '“Sangat terjangkau untuk kantong saya yang tidak terlalu banyak“',
   },
 ];
