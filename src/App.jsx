@@ -6,6 +6,7 @@ import Product from './components/Product';
 import Experience from './components/Experience';
 import Materials from './components/Materials';
 import Testimonials from './components/Testimonials';
+import Footer from './components/Footer';
 export default function App() {
   return (
     <div className="overflow-hidden">
@@ -15,6 +16,7 @@ export default function App() {
       <Experience />
       <Materials />
       <Testimonials />
+      <Footer />
     </div>
   );
 }
