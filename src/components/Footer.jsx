@@ -8,7 +8,7 @@ import instagram from '../assets/images/svgs/instagram.svg';
 
 export default function Footer() {
   return (
-    <Layout bg="#F7F7F7">
+    <Layout extraClass="bg-[#F7F7F7]">
       <div className="2xl:px-32">
         <div className="lg:flex lg:items-center lg:gap-10 2xl:gap-40">
           <div className="space-y-3">
@@ -24,13 +24,13 @@ export default function Footer() {
                 Services
               </span>
               <ul className="[&>*]:text-lg font-gilroyLight mt-2 space-y-2">
-                <li className="hover:scale-110 transition-all cursor-pointer hover:text-[#F6973F]">
+                <li className="hover:scale-110 transition-all text-[#1E1E1E] cursor-pointer hover:text-[#F6973F]">
                   Email Marketing
                 </li>
-                <li className="hover:scale-110 transition-all cursor-pointer hover:text-[#F6973F]">
+                <li className="hover:scale-110 transition-all text-[#1E1E1E] cursor-pointer hover:text-[#F6973F]">
                   Campaigns
                 </li>
-                <li className="hover:scale-110 transition-all cursor-pointer hover:text-[#F6973F]">
+                <li className="hover:scale-110 transition-all text-[#1E1E1E] cursor-pointer hover:text-[#F6973F]">
                   Branding
                 </li>
               </ul>
@@ -40,13 +40,13 @@ export default function Footer() {
                 Furniture
               </span>
               <ul className="[&>*]:text-lg font-gilroyLight mt-2 space-y-2">
-                <li className="hover:scale-110 transition-all cursor-pointer hover:text-[#F6973F]">
+                <li className="hover:scale-110 transition-all text-[#1E1E1E] cursor-pointer hover:text-[#F6973F]">
                   Beds
                 </li>
-                <li className="hover:scale-110 transition-all cursor-pointer hover:text-[#F6973F]">
+                <li className="hover:scale-110 transition-all text-[#1E1E1E] cursor-pointer hover:text-[#F6973F]">
                   Chair
                 </li>
-                <li className="hover:scale-110 transition-all cursor-pointer hover:text-[#F6973F]">
+                <li className="hover:scale-110 transition-all text-[#1E1E1E] cursor-pointer hover:text-[#F6973F]">
                   All
                 </li>
               </ul>

@@ -3,8 +3,16 @@ import React from 'react';
 import img from '../../../assets/images/products/img1.png';
 import star from '../../../assets/images/svgs/star.svg';
 import plus from '../../../assets/images/svgs/plus.svg';
-
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addItem,
+  getCurrentQuantityById,
+  getTotalCartCount,
+} from '../../../reducers/Cart';
 export default function Cart() {
+  const dispatch = useDispatch();
+  const currentCount = useSelector(getCurrentQuantityById(1));
+
   return (
     <div className="max-w-[290px] w-full rounded-xl border">
       <div className="bg-[#FAFAFA] max-h-[15rem] rounded-t-xl pb-10 flex items-center justify-center">
@@ -26,7 +34,10 @@ export default function Cart() {
             <sup>$ </sup>
             392
           </span>
-          <div className="bg-[#0D1B39] cursor-pointer w-fit rounded-full group p-2">
+          <div
+            onClick={() => dispatch(addItem({ id: 3, name: 'ali' }))}
+            className="bg-[#0D1B39] cursor-pointer w-fit rounded-full group p-2"
+          >
             <img
               src={plus}
               alt="svg plus"
