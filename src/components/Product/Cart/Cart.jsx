@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, getCurrentQuantityById } from '../../../reducers/Cart';
 
-import img from '../../../assets/images/products/img1.png';
 import star from '../../../assets/images/svgs/star.svg';
 import plus from '../../../assets/images/svgs/plus.svg';
 
@@ -30,8 +29,8 @@ export default function Cart({ item }) {
           {item.label}
         </h2>
         <div className="flex items-center gap-1">
-          {Array.from({ length: 5 }).map(() => (
-            <img alt="svg" src={star} />
+          {Array.from({ length: 5 }).map((_, index) => (
+            <img key={index} alt="svg" src={star} />
           ))}
         </div>
 
