@@ -26,19 +26,19 @@ export const Why = [
 export const NavListProduct = [
   {
     id: 1,
-    leble: 'Chair',
+    label: 'Chair',
   },
   {
     id: 2,
-    leble: 'Beds',
+    label: 'Beds',
   },
   {
     id: 3,
-    leble: 'Sofa',
+    label: 'Sofa',
   },
   {
     id: 4,
-    leble: 'Lamp',
+    label: 'Lamp',
   },
 ];
 
