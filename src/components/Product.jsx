@@ -6,6 +6,8 @@ import Cart from './Product/Cart/Cart';
 
 import longArrow from '../assets/images/svgs/long-arrow-right.svg';
 
+import { ProductsList } from '../constants';
+
 export default function Product() {
   return (
     <Layout bg="#F7F7F7">
@@ -15,10 +17,9 @@ export default function Product() {
         </h1>
         <NavList />
         <div className="flex flex-wrap gap-14 mt-14 items-center justify-center">
-          <Cart />
-          <Cart />
-          <Cart />
-          <Cart />
+          {ProductsList.map(item => (
+            <Cart key={item.id} item={item} />
+          ))}
         </div>
 
         <div className="text-[#E58411] cursor-pointer flex items-center justify-center mt-12 gap-2">
