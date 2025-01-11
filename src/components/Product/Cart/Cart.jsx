@@ -1,27 +1,33 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem, getCurrentQuantityById } from '../../../reducers/Cart';
 
 import img from '../../../assets/images/products/img1.png';
 import star from '../../../assets/images/svgs/star.svg';
 import plus from '../../../assets/images/svgs/plus.svg';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  addItem,
-  getCurrentQuantityById,
-  getTotalCartCount,
-} from '../../../reducers/Cart';
-export default function Cart() {
+
+import Counter from '../Counter';
+
+export default function Cart({ item }) {
   const dispatch = useDispatch();
-  const currentCount = useSelector(getCurrentQuantityById(1));
+  const currentCount = useSelector(getCurrentQuantityById(item.id));
 
   return (
     <div className="max-w-[290px] w-full rounded-xl border">
       <div className="bg-[#FAFAFA] max-h-[15rem] rounded-t-xl pb-10 flex items-center justify-center">
-        <img src={img} alt="img" className="" />
+        <img
+          src={item.img}
+          draggable={false}
+          alt="img"
+          className="hover:scale-110 transition-all duration-300"
+        />
       </div>
       <div className="px-3 pt-2 pb-4 space-y-1">
-        <span className="font-IntroRegular text-sm text-[#8D8D8D]">Chair</span>
-        <h2 className="font-IntroSemiBold text-xl text-[0D1B39]">
-          Sakarias Armchair
+        <span className="font-IntroRegular text-sm text-[#8D8D8D]">
+          {item.category}
+        </span>
+        <h2 className="font-IntroSemiBold hover:text-[#E58411] cursor-pointer transition-all duration-300 text-xl text-[0D1B39]">
+          {item.label}
         </h2>
         <div className="flex items-center gap-1">
           {Array.from({ length: 5 }).map(() => (
@@ -32,18 +38,22 @@ export default function Cart() {
         <footer className="flex items-center justify-between !mt-5">
           <span className="text-[#0D1B39] font-gilroyBold text-2xl">
             <sup>$ </sup>
-            392
+            {item.price}
           </span>
-          <div
-            onClick={() => dispatch(addItem({ id: 3, name: 'ali' }))}
-            className="bg-[#0D1B39] cursor-pointer w-fit rounded-full group p-2"
-          >
-            <img
-              src={plus}
-              alt="svg plus"
-              className="group-hover:animate-ping"
-            />
-          </div>
+          {currentCount === 0 ? (
+            <div
+              onClick={() => dispatch(addItem({ ...item, count: 1 }))}
+              className="bg-[#0D1B39] cursor-pointer w-fit rounded-full group p-2"
+            >
+              <img
+                src={plus}
+                alt="svg plus"
+                className="group-hover:animate-ping"
+              />
+            </div>
+          ) : (
+            <Counter id={item.id} currentCount={currentCount} />
+          )}
         </footer>
       </div>
     </div>
