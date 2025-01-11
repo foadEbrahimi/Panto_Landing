@@ -10,12 +10,14 @@ export default function NavList() {
         {NavListProduct.map(item => (
           <li
             key={item.id}
-            className={`${list === item.leble ? 'bg-white' : ''} z-10 relative ${
-              list !== item.leble && 'navList'
+            className={`${
+              list === item.label ? 'bg-white' : ''
+            } z-10 relative ${
+              list !== item.label && 'navList'
             } overflow-hidden`}
-            onClick={() => setList(item.leble)}
+            onClick={() => setList(item.label)}
           >
-            {item.leble}
+            {item.label}
           </li>
         ))}
       </ul>
