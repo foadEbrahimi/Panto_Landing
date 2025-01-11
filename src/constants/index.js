@@ -4,6 +4,7 @@ import img3 from '../assets/images/Testimonials/img3.png';
 import avatar1 from '../assets/images/Testimonials/avatar/avatar1.png';
 import avatar2 from '../assets/images/Testimonials/avatar/avatar2.png';
 import avatar3 from '../assets/images/Testimonials/avatar/avatar3.png';
+import pImg from '../assets/images/products/img1.png';
 
 export const Why = [
   {
@@ -82,5 +83,36 @@ export const Testimonials = [
     name: 'Mpok Ina',
     job: 'Karyawan Swasta',
     desc: '“Sangat terjangkau untuk kantong saya yang tidak terlalu banyak“',
+  },
+];
+
+export const ProductsList = [
+  {
+    id: 1,
+    label: 'Sakarias Armchair',
+    category: 'Chair',
+    price: '392',
+    img: pImg,
+  },
+  {
+    id: 2,
+    label: 'Sakarias Armchair',
+    category: 'Chair',
+    price: '392',
+    img: pImg,
+  },
+  {
+    id: 3,
+    label: 'Sakarias Armchair',
+    category: 'Chair',
+    price: '392',
+    img: pImg,
+  },
+  {
+    id: 4,
+    label: 'Sakarias Armchair',
+    category: 'Chair',
+    price: '392',
+    img: pImg,
   },
 ];
