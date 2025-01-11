@@ -3,26 +3,29 @@ import { createSlice } from '@reduxjs/toolkit';
 const cartSlice = createSlice({
   name: 'cart',
   initialState: {
-    cart: [
-      { id: 1, name: 'foad', count: 10 },
-      { id: 2, name: 'miad', count: 2 },
-    ],
+    cart: [],
   },
   reducers: {
     addItem(state, action) {
+      // action => product obj
       state.cart.push(action.payload);
     },
     addCount(state, action) {
+      // action => id
       const item = state.cart.find(item => item.id === action.payload);
       item.count++;
     },
     minusCount(state, action) {
+      // action => id
       const item = state.cart.find(item => item.id === action.payload);
       item.count--;
-      if (item.count === 0) cartSlice.caseReducers.deleteItem();
+      if (item.count === 0)
+        cartSlice.caseReducers.deleteItem(state, { payload: action.payload });
     },
     deleteItem(state, action) {
-      state.cart = state.cart.filter(item => item.id !== action.payload);
+      state.cart = state.cart.filter(
+        cartItem => cartItem.id !== action.payload
+      );
     },
   },
 });
