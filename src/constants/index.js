@@ -53,7 +53,7 @@ export const Testimonials = [
     desc: '“Terimakasih banyak, kini ruanganku menjadi lebih mewah dan terlihat mahal“',
   },
   {
-    id: 1,
+    id: 2,
     img: img2,
     avatar: avatar2,
     name: 'Ibuk Sukijan',
@@ -61,7 +61,7 @@ export const Testimonials = [
     desc: '“Makasih Panto, aku sekarang berasa tinggal di apartment karena barang-barang yang terlihat mewah“',
   },
   {
-    id: 1,
+    id: 3,
     img: img3,
     avatar: avatar3,
     name: 'Mpok Ina',
@@ -69,7 +69,7 @@ export const Testimonials = [
     desc: '“Sangat terjangkau untuk kantong saya yang tidak terlalu banyak“',
   },
   {
-    id: 1,
+    id: 4,
     img: img2,
     avatar: avatar2,
     name: 'Ibuk Sukijan',
@@ -77,7 +77,7 @@ export const Testimonials = [
     desc: '“Makasih Panto, aku sekarang berasa tinggal di apartment karena barang-barang yang terlihat mewah“',
   },
   {
-    id: 1,
+    id: 5,
     img: img3,
     avatar: avatar3,
     name: 'Mpok Ina',
