@@ -41,7 +41,9 @@ export default function Cart({ item }) {
           </span>
           {currentCount === 0 ? (
             <div
-              onClick={() => dispatch(addItem({ ...item, count: 1 }))}
+              onClick={() =>
+                dispatch(addItem({ ...item, count: 1, totalprice: item.price }))
+              }
               className="bg-[#0D1B39] cursor-pointer w-fit rounded-full group p-2"
             >
               <img
