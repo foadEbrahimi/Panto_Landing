@@ -5,6 +5,9 @@ import avatar1 from '../assets/images/Testimonials/avatar/avatar1.png';
 import avatar2 from '../assets/images/Testimonials/avatar/avatar2.png';
 import avatar3 from '../assets/images/Testimonials/avatar/avatar3.png';
 import pImg from '../assets/images/products/img1.png';
+import pImg2 from '../assets/images/products/img2.png';
+import pImg3 from '../assets/images/products/img3.png';
+import pImg4 from '../assets/images/products/img4.png';
 
 export const Why = [
   {
@@ -96,23 +99,23 @@ export const ProductsList = [
   },
   {
     id: 2,
-    label: 'Sakarias Armchair',
+    label: 'Baltsar Chair',
     category: 'Chair',
-    price: '392',
-    img: pImg,
+    price: '299',
+    img: pImg4,
   },
   {
     id: 3,
-    label: 'Sakarias Armchair',
+    label: 'Anjay Chair',
     category: 'Chair',
-    price: '392',
-    img: pImg,
+    price: '519',
+    img: pImg2,
   },
   {
     id: 4,
-    label: 'Sakarias Armchair',
+    label: 'Nyantuy Chair',
     category: 'Chair',
-    price: '392',
-    img: pImg,
+    price: '921',
+    img: pImg3,
   },
 ];
