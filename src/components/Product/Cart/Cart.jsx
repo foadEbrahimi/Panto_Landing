@@ -2,8 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, getCurrentQuantityById } from '../../../reducers/Cart';
 
-import star from '../../../assets/images/svgs/star.svg';
 import plus from '../../../assets/images/svgs/plus.svg';
+import star from '../../../assets/images/svgs/star.svg';
 
 import Counter from '../Counter';
 
@@ -18,7 +18,7 @@ export default function Cart({ item }) {
           src={item.img}
           draggable={false}
           alt="img"
-          className="hover:scale-110 transition-all duration-300"
+          className="hover:scale-110 transition-all max-h-[15rem] duration-300"
         />
       </div>
       <div className="px-3 pt-2 pb-4 space-y-1">
