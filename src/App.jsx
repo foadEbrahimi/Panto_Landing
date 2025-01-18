@@ -7,16 +7,19 @@ import Experience from './components/Experience';
 import Materials from './components/Materials';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
+import { BrowserRouter } from 'react-router-dom';
 export default function App() {
   return (
     <div className="overflow-hidden">
-      <Hero />
-      <Why />
-      <Product />
-      <Experience />
-      <Materials />
-      <Testimonials />
-      <Footer />
+      <BrowserRouter>
+        <Hero />
+        <Why />
+        <Product />
+        <Experience />
+        <Materials />
+        <Testimonials />
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }
