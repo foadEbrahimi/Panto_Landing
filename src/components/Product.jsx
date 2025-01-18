@@ -16,7 +16,7 @@ export default function Product() {
           Best Selling Product
         </h1>
         <NavList />
-        <div className="flex flex-wrap gap-14 mt-14 items-center justify-center">
+        <div className="flex flex-wrap gap-5 mt-14 items-center justify-center">
           {ProductsList.map(item => (
             <Cart key={item.id} item={item} />
           ))}
