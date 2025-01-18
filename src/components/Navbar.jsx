@@ -15,7 +15,10 @@ export default function Navbar() {
   const [showCart, setShowCart] = useState(false);
   const [showList, setShowList] = useState(false);
 
-  const close = () => setShowList(false);
+  const close = () => {
+    setShowList(false);
+    setShowCart(false);
+  };
   const { ref } = useClickOutSide(close);
 
   const count = useSelector(getTotalCartCount);
@@ -77,6 +80,7 @@ export default function Navbar() {
         </div>
         {/* cart */}
         <div
+          ref={ref}
           className={`absolute flex flex-col ${
             showCart ? '' : 'translate-x-[100%]'
           } p-3 w-[23rem] rounded-l-lg top-0 h-[100dvh] z-10 transition-all duration-500 bg-white -right-10`}
