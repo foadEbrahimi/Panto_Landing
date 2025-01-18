@@ -18,7 +18,7 @@ export default function Cart({ item }) {
           src={item.img}
           draggable={false}
           alt="img"
-          className="hover:scale-110 transition-all max-h-[15rem] duration-300"
+          className="hover:scale-125 transition-all max-h-[13rem] duration-300"
         />
       </div>
       <div className="px-3 pt-2 pb-4 space-y-1">
