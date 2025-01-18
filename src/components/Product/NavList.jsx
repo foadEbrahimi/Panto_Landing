@@ -1,9 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { NavListProduct } from '../../constants/index';
+import { useSearchParams } from 'react-router-dom';
 
 export default function NavList() {
-  const [list, setList] = useState('Chair');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeCategory = !searchParams.get('category')
+    ? 'Chair'
+    : searchParams.get('category');
+
+  function handlerCategory(value) {
+    searchParams.set('category', value);
+    setSearchParams(searchParams);
+  }
+
   return (
     <div className="bg-[#eeeeee] px-2 py-1.5 rounded-full w-fit mx-auto mt-8">
       <ul className="[&>*]:rounded-full [&>*]:lg:text-lg [&>*]:cursor-pointer [&>*]:px-4 [&>*]:py-2 flex gap-1 items-center justify-between">
@@ -11,11 +21,11 @@ export default function NavList() {
           <li
             key={item.id}
             className={`${
-              list === item.label ? 'bg-white' : ''
+              activeCategory === item.label ? 'bg-white' : ''
             } z-10 relative ${
-              list !== item.label && 'navList'
+              activeCategory !== item.label && 'navList'
             } overflow-hidden`}
-            onClick={() => setList(item.label)}
+            onClick={() => handlerCategory(item.label)}
           >
             {item.label}
           </li>
