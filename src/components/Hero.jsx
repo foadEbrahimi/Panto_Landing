@@ -3,10 +3,10 @@ import Navbar from './Navbar';
 
 import search from '../assets/images/svgs/search.svg';
 
-export default function Hero() {
+export default function Hero({ setShowCart }) {
   return (
     <div id="hero" className="relative">
-      <Navbar />
+      <Navbar setShowCart={setShowCart} />
       <div className="mt-36 px-4">
         <h1 className="text-white xl:leading-[4.5rem] md:text-5xl xl:text-6xl lg:text-5xl text-4xl font-gilroyBold text-center">
           Make Your Interior More <br /> Minimalistis & Modern
