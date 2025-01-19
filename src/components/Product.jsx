@@ -7,8 +7,16 @@ import Cart from './Product/Cart/Cart';
 import longArrow from '../assets/images/svgs/long-arrow-right.svg';
 
 import { ProductsList } from '../constants';
+import { useSearchParams } from 'react-router-dom';
 
 export default function Product() {
+  const [searchParams] = useSearchParams();
+  const activeCategory = searchParams.get('category') || 'Chair';
+
+  const filterdProduct = ProductsList.filter(
+    item => item.category === activeCategory
+  ).slice(0, 4);
+
   return (
     <Layout bg="#F7F7F7">
       <div className="min-h-[100dvh] py-10">
@@ -17,7 +25,7 @@ export default function Product() {
         </h1>
         <NavList />
         <div className="flex flex-wrap gap-5 mt-14 items-center justify-center">
-          {ProductsList.map(item => (
+          {filterdProduct.map(item => (
             <Cart key={item.id} item={item} />
           ))}
         </div>
