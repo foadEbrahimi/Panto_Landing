@@ -3,7 +3,7 @@ import React from 'react';
 import { NavListProduct } from '../../constants/index';
 import { useSearchParams } from 'react-router-dom';
 
-export default function NavList() {
+export default function NavList({ setLoading }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const activeCategory = !searchParams.get('category')
     ? 'Chair'
@@ -12,6 +12,10 @@ export default function NavList() {
   function handlerCategory(value) {
     searchParams.set('category', value);
     setSearchParams(searchParams);
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   }
 
   return (
