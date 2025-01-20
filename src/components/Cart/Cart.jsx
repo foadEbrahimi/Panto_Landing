@@ -32,14 +32,14 @@ export default function Cart({ item }) {
             <img
               src={minusRed}
               onClick={() => dispatch(minusCount(item.id))}
-              className="w-7"
+              className="w-7 cursor-pointer"
               alt="minusRed svg"
             />
             <span className="text-xl">{item.count}</span>
             <img
               onClick={() => dispatch(addCount(item.id))}
               src={plusGreen}
-              className="w-7"
+              className="w-7 cursor-pointer"
               alt="plusGreen svg"
             />
           </div>
