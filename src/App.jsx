@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 import Experience from './components/Experience';
 import Footer from './components/Footer';
@@ -11,13 +11,16 @@ import Testimonials from './components/Testimonials';
 import Why from './components/Why';
 import useClickOutSide from './hook/useClickOutSide';
 
-import xBlack from './assets/images/svgs/x-black.svg';
 import arrowCart from './assets/images/svgs/arrowCart.svg';
+import xBlack from './assets/images/svgs/x-black.svg';
 
 import Cart from './components/Cart/Cart';
+import { getTotalCartPrice } from './reducers/Cart';
+import { formatPrice } from './utils/helper';
 
 export default function App() {
   const { cart } = useSelector(state => state.cart);
+  const totalPriceCart = useSelector(getTotalCartPrice);
 
   const [showCart, setShowCart] = useState(false);
   const close = () => {
@@ -45,12 +48,43 @@ export default function App() {
               Cart
             </span>
           </div>
-          <div className="mt-8 space-y-5 overflow-y-auto">
-            {cart.map(item => (
-              <Cart item={item} key={item.id} />
-            ))}
+          <div
+            className="mt-8 space-y-6 overflow-y-auto border rounded-md max-h-[25rem] min-h-[25rem]"
+            id="scroll"
+          >
+            {cart.length > 0 ? (
+              cart.map(item => <Cart item={item} key={item.id} />)
+            ) : (
+              <span className="flex h-full items-center justify-center text-xl font-gilroyBold">
+                Oh No! Your Cart is on a Diet!
+              </span>
+            )}
           </div>
+          <div className="my-8 h-0.5 bg-[#030303]" />
+          {cart.length > 0 && (
+            <div className="flex flex-col h-full gap-2">
+              <span className="font-gilroyMedium text-xl">
+                Amount : {formatPrice(totalPriceCart)}
+              </span>
+              <span className="font-gilroyMedium text-xl">
+                Taxes : {formatPrice(totalPriceCart * 0.02)}
+              </span>
+              <span className="font-gilroyMedium mt-2 text-2xl">
+                Total : {formatPrice(totalPriceCart * 0.02 + totalPriceCart)}
+              </span>
+
+              <div className="mt-auto flex items-center gap-5 h-full justify-between">
+                <button className="flex-1 bg-red-500 hover:bg-red-700 transition-all duration-300 p-2 rounded-md text-white text-lg font-gilroyBold text-center">
+                  Cancel
+                </button>
+                <button className="flex-1 bg-green-500 hover:bg-green-700 transition-all duration-300 p-2 rounded-md text-white text-lg font-gilroyBold text-center">
+                  Pay
+                </button>
+              </div>
+            </div>
+          )}
         </div>
+
         <Hero setShowCart={setShowCart} />
         <Why />
         <Product />
