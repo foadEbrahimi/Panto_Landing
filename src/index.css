@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+#scroll {
+  scrollbar-width: none; /* تنظیم پیچیدگی باریک */
+}
+
 /* gilroy font */
 @font-face {
   font-family: gilroyBold;
