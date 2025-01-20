@@ -32,7 +32,7 @@ export default function App() {
           ref={ref}
           className={`fixed flex flex-col ${
             showCart ? '' : 'translate-x-[100%]'
-          } p-3 w-[100%] top-0 h-[100%] z-20 transition-all duration-500 bg-white right-0`}
+          } p-3 w-[100%] top-0 h-[100%] md:w-[27rem] z-20 transition-all duration-500 bg-white right-0`}
         >
           <div className="grid grid-cols-3 items-center">
             <div
@@ -45,7 +45,7 @@ export default function App() {
               Cart
             </span>
           </div>
-          <div className="mt-8 space-y-5">
+          <div className="mt-8 space-y-5 overflow-y-auto">
             {cart.map(item => (
               <Cart item={item} key={item.id} />
             ))}
