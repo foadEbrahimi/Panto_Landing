@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Experience from './components/Experience';
 import Footer from './components/Footer';
@@ -17,6 +17,7 @@ import xBlack from './assets/images/svgs/x-black.svg';
 import Cart from './components/Cart/Cart';
 import { getTotalCartPrice } from './reducers/Cart';
 import { formatPrice } from './utils/helper';
+import Layout from './Layout';
 
 export default function App() {
   const { cart } = useSelector(state => state.cart);
@@ -84,14 +85,22 @@ export default function App() {
             </div>
           )}
         </div>
-
-        <Hero setShowCart={setShowCart} />
-        <Why />
-        <Product />
-        <Experience />
-        <Materials />
-        <Testimonials />
-        <Footer />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero setShowCart={setShowCart} />
+                <Why />
+                <Product />
+                <Experience />
+                <Materials />
+                <Testimonials />
+                <Footer />
+              </>
+            }
+          />
+        </Routes>
       </BrowserRouter>
     </div>
   );
