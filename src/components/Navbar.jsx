@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import bag from '../assets/images/svgs/bag.svg';
 import list from '../assets/images/svgs/list.svg';
@@ -22,7 +22,7 @@ export default function Navbar({ setShowCart }) {
   const allPrice = useSelector(getTotalCartPrice);
 
   return (
-    <Layout>
+    <Layout extraClass={'sticky top-0 left-0'}>
       <div
         ref={ref}
         id="navbar"

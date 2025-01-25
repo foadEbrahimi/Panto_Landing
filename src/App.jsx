@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Experience from './components/Experience';
@@ -18,18 +18,20 @@ import xBlack from './assets/images/svgs/x-black.svg';
 import Cart from './components/Cart/Cart';
 import Layout from './Layout';
 import DetailsProduct from './pages/DetailsProduct';
-import { getTotalCartPrice } from './reducers/Cart';
+import { clearCart, getTotalCartPrice } from './reducers/Cart';
 import { formatPrice } from './utils/helper';
 
 export default function App() {
+  const dispatch = useDispatch();
+  const [showCart, setShowCart] = useState(false);
   const { cart } = useSelector(state => state.cart);
   const totalPriceCart = useSelector(getTotalCartPrice);
 
-  const [showCart, setShowCart] = useState(false);
   const close = () => {
     setShowCart(false);
   };
   const { ref } = useClickOutSide(close);
+
   return (
     <div className="overflow-hidden relative">
       <BrowserRouter>
@@ -84,10 +86,16 @@ export default function App() {
                 </span>
 
                 <div className="mt-auto flex items-center gap-5 h-full justify-between">
-                  <button className="flex-1 bg-red-500 hover:bg-red-700 transition-all duration-300 p-2 rounded-md text-white text-lg font-gilroyBold text-center">
+                  {/* <button className="flex-1 bg-red-500 hover:bg-red-700 transition-all duration-300 p-2 rounded-md text-white text-lg font-gilroyBold text-center">
                     Cancel
-                  </button>
-                  <button className="flex-1 bg-green-500 hover:bg-green-700 transition-all duration-300 p-2 rounded-md text-white text-lg font-gilroyBold text-center">
+                  </button> */}
+                  <button
+                    onClick={() => {
+                      setShowCart(false);
+                      dispatch(clearCart([]));
+                    }}
+                    className="w-40 mx-auto bg-green-500 hover:bg-green-700 transition-all duration-300 p-2 rounded-md text-white text-lg font-gilroyBold text-center"
+                  >
                     Pay
                   </button>
                 </div>
