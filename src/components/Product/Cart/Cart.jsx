@@ -6,6 +6,7 @@ import plus from '../../../assets/images/svgs/plus.svg';
 import star from '../../../assets/images/svgs/star.svg';
 
 import Counter from '../Counter';
+import { Link } from 'react-router-dom';
 
 export default function Cart({ item }) {
   const dispatch = useDispatch();
@@ -25,9 +26,12 @@ export default function Cart({ item }) {
         <span className="font-IntroRegular text-sm text-[#8D8D8D]">
           {item.category}
         </span>
-        <h2 className="font-IntroSemiBold hover:text-[#E58411] cursor-pointer transition-all duration-300 text-xl text-[0D1B39]">
+        <Link
+          to={`products/${item.id}`}
+          className="font-IntroSemiBold block hover:text-[#E58411] cursor-pointer transition-all duration-300 text-xl text-[0D1B39]"
+        >
           {item.label}
-        </h2>
+        </Link>
         <div className="flex items-center gap-1">
           {Array.from({ length: 5 }).map((_, index) => (
             <img key={index} alt="svg" src={star} />
