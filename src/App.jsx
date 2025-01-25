@@ -10,6 +10,7 @@ import Product from './components/Product';
 import Testimonials from './components/Testimonials';
 import Why from './components/Why';
 import useClickOutSide from './hook/useClickOutSide';
+import Products from './pages/Products';
 
 import arrowCart from './assets/images/svgs/arrowCart.svg';
 import xBlack from './assets/images/svgs/x-black.svg';
@@ -18,6 +19,7 @@ import Cart from './components/Cart/Cart';
 import { getTotalCartPrice } from './reducers/Cart';
 import { formatPrice } from './utils/helper';
 import Layout from './Layout';
+import DetailsProduct from './pages/DetailsProduct';
 
 export default function App() {
   const { cart } = useSelector(state => state.cart);
@@ -43,7 +45,7 @@ export default function App() {
               onClick={close}
               className="rounded-lg shadow-xl shadow-black/20 justify-self-start cursor-pointer w-10 px-3 py-3 bg-white "
             >
-              <img src={arrowCart} alt="svg" />
+              <img src={xBlack} alt="svg" />
             </div>
             <span className="font-gilroyBold place-self-center text-2xl">
               Cart
@@ -100,6 +102,8 @@ export default function App() {
               </>
             }
           />
+          <Route path="products" element={<Products />} />
+          <Route path="products/:id" element={<DetailsProduct />} />
         </Routes>
       </BrowserRouter>
     </div>
