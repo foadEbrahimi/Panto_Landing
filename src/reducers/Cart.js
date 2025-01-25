@@ -29,6 +29,9 @@ const cartSlice = createSlice({
         cartItem => cartItem.id !== action.payload
       );
     },
+    clearCart(state, action) {
+      state.cart = action.payload;
+    },
   },
 });
 
@@ -42,4 +45,5 @@ export const getTotalCartPrice = store =>
 export const getCurrentQuantityById = id => store =>
   store.cart.cart.find(item => item.id === id)?.count ?? 0;
 
-export const { addItem, addCount, minusCount, deleteItem } = cartSlice.actions;
+export const { addItem, addCount, minusCount, deleteItem, clearCart } =
+  cartSlice.actions;
