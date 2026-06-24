@@ -45,6 +45,10 @@
     url('./assets/images/bg3.jpg') center / cover no-repeat;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 #navbar {
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
