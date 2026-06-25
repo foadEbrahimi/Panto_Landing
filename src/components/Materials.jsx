@@ -7,7 +7,7 @@ import longArrow from '../assets/images/svgs/long-arrow-right.svg';
 
 export default function Materials() {
   return (
-    <div className="h-[100dvh] flex items-center justify-center lg:justify-end">
+    <div id="about" className="h-[100dvh] flex items-center justify-center lg:justify-end">
       <div className="lg:flex lg:items-center lg:gap-28">
         <div className="space-y-4 p-3">
           <span className="text-[#E58411] text-lg uppercase tracking-[5px] font-semibold">

@@ -8,7 +8,7 @@ import instagram from '../assets/images/svgs/instagram.svg';
 
 export default function Footer() {
   return (
-    <Layout extraClass="bg-[#F7F7F7]">
+    <Layout extraClass="bg-[#F7F7F7]" id="contact">
       <div className="2xl:px-32">
         <div className="lg:flex lg:items-center lg:gap-10 2xl:gap-40">
           <div className="space-y-3">

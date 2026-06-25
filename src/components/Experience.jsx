@@ -6,7 +6,7 @@ import longArrow from '../assets/images/svgs/long-arrow-right.svg';
 
 export default function Experience() {
   return (
-    <div className="h-[100dvh] flex items-center justify-center xl:justify-normal">
+    <div id="shop" className="h-[100dvh] flex items-center justify-center xl:justify-normal">
       <div className="lg:flex lg:items-center lg:gap-28">
         <div className="relative">
           <img src={img1} alt="img" className="lg:max-w-xl p-4 lg:p-0" />

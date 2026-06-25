@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { getTotalCartCount, getTotalCartPrice } from '../reducers/Cart';
 import useClickOutSide from '../hook/useClickOutSide';
@@ -7,6 +7,8 @@ import bag from '../assets/images/svgs/bag.svg';
 import list from '../assets/images/svgs/list.svg';
 import x from '../assets/images/svgs/x.svg';
 import { formatPrice } from '../utils/helper';
+
+const SECTION_IDS = ['furniture', 'shop', 'about', 'contact'];
 
 export default function Navbar({ setShowCart }) {
   const [showList, setShowList] = useState(false);
@@ -24,6 +26,27 @@ export default function Navbar({ setShowCart }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleScrollSpy = useCallback(() => {
+    const offset = 120;
+    let current = '';
+    for (const id of SECTION_IDS) {
+      const el = document.getElementById(id);
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= offset) {
+          current = id;
+        }
+      }
+    }
+    setActiveLink(current);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScrollSpy, { passive: true });
+    handleScrollSpy();
+    return () => window.removeEventListener('scroll', handleScrollSpy);
+  }, [handleScrollSpy]);
+
   const close = () => setShowList(false);
   const { ref } = useClickOutSide(close);
 
@@ -34,6 +57,18 @@ export default function Navbar({ setShowCart }) {
     { name: 'Contact', href: '#contact' },
   ];
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToSection = (href) => {
+    const id = href.replace('#', '');
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <Layout extraClass={`sticky top-0 left-0 ${scrolled ? 'py-3' : 'py-5'}`}>
       <div
@@ -42,9 +77,12 @@ export default function Navbar({ setShowCart }) {
         className="flex px-6 py-4 items-center justify-between"
       >
         <div>
-          <h1 className="text-2xl font-gilroyBold cursor-pointer hover:text-[#55e83b] transition-colors duration-300">
+          <button
+            onClick={scrollToTop}
+            className="text-2xl font-gilroyBold cursor-pointer hover:text-[#55e83b] transition-colors duration-300"
+          >
             Panto
-          </h1>
+          </button>
         </div>
         {/* Desktop nav */}
         <div className="hidden md:flex">
@@ -53,9 +91,12 @@ export default function Navbar({ setShowCart }) {
               <li key={link.name}>
                 <a
                   href={link.href}
-                  onClick={() => setActiveLink(link.name)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(link.href);
+                  }}
                   className={`font-gilroyMedium transition-all duration-300 cursor-pointer text-white text-xl hover:text-[#55e83b] ${
-                    activeLink === link.name ? 'text-[#55e83b]' : ''
+                    activeLink === link.href.replace('#', '') ? 'text-[#55e83b]' : ''
                   }`}
                 >
                   {link.name}
@@ -66,7 +107,7 @@ export default function Navbar({ setShowCart }) {
         </div>
         {/* Mobile nav */}
         <div
-          id="navbar"
+          id="mobile-nav"
           className={`absolute top-[4.2rem] rounded-lg right-0 transition-all w-52 duration-300 p-2 bg-red-500 ${
             showList ? 'translate-x-0 opacity-100' : 'translate-x-[300%] opacity-0'
           }`}
@@ -76,12 +117,13 @@ export default function Navbar({ setShowCart }) {
               <li key={link.name}>
                 <a
                   href={link.href}
-                  onClick={() => {
-                    setActiveLink(link.name);
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(link.href);
                     close();
                   }}
                   className={`font-gilroyMedium transition-all duration-300 cursor-pointer text-white text-xl hover:text-[#55e83b] ${
-                    activeLink === link.name ? 'text-[#55e83b]' : ''
+                    activeLink === link.href.replace('#', '') ? 'text-[#55e83b]' : ''
                   }`}
                 >
                   {link.name}
