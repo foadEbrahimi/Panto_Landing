@@ -20,6 +20,7 @@ import Layout from './Layout';
 import DetailsProduct from './pages/DetailsProduct';
 import { clearCart, getTotalCartPrice } from './reducers/Cart';
 import { formatPrice } from './utils/helper';
+import bag from './assets/images/svgs/bag.svg';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -35,73 +36,76 @@ export default function App() {
   return (
     <div className="overflow-hidden relative">
       <BrowserRouter>
-        {/* cart */}
-        <div className="">
-          <div
-            id="navbar"
-            className={`absolute top-0 left-0 ${
-              showCart ? 'w-full h-full z-10' : ''
-            }`}
-          ></div>
-          <div
-            ref={ref}
-            className={`fixed flex flex-col ${
-              showCart ? '' : 'translate-x-[100%]'
-            } p-3 w-[100%] top-0 h-[100%] md:w-[27rem] z-30 transition-all duration-500 bg-white right-0`}
-          >
-            <div className="grid grid-cols-3 items-center">
-              <div
-                onClick={close}
-                className="rounded-lg shadow-xl shadow-black/20 justify-self-start cursor-pointer w-10 px-3 py-3 bg-white "
-              >
-                <img src={xBlack} alt="svg" />
-              </div>
-              <span className="font-gilroyBold place-self-center text-2xl">
-                Cart
-              </span>
-            </div>
-            <div
-              className="mt-8 space-y-6 overflow-y-auto border rounded-md max-h-[25rem] min-h-[25rem]"
-              id="scroll"
-            >
-              {cart.length > 0 ? (
-                cart.map(item => <Cart item={item} key={item.id} />)
-              ) : (
-                <span className="flex h-full items-center justify-center text-xl font-gilroyBold">
-                  Oh No! Your Cart is on a Diet!
-                </span>
-              )}
-            </div>
-            <div className="my-8 h-0.5 bg-[#030303]" />
-            {cart.length > 0 && (
-              <div className="flex flex-col h-full gap-2">
-                <span className="font-gilroyMedium text-xl">
-                  Amount : {formatPrice(totalPriceCart)}
-                </span>
-                <span className="font-gilroyMedium text-xl">
-                  Taxes : {formatPrice(totalPriceCart * 0.02)}
-                </span>
-                <span className="font-gilroyMedium mt-2 text-2xl">
-                  Total : {formatPrice(totalPriceCart * 0.02 + totalPriceCart)}
-                </span>
+        {/* Cart Overlay */}
+        <div className={`fixed inset-0 bg-black/50 z-20 transition-opacity duration-300 ${showCart ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} />
 
-                <div className="mt-auto flex items-center gap-5 h-full justify-between">
-                  {/* <button className="flex-1 bg-red-500 hover:bg-red-700 transition-all duration-300 p-2 rounded-md text-white text-lg font-gilroyBold text-center">
-                    Cancel
-                  </button> */}
-                  <button
-                    onClick={() => {
-                      setShowCart(false);
-                      dispatch(clearCart([]));
-                    }}
-                    className="w-40 mx-auto bg-green-500 hover:bg-green-700 transition-all duration-300 p-2 rounded-md text-white text-lg font-gilroyBold text-center"
-                  >
-                    Pay
-                  </button>
+        {/* Cart Sidebar */}
+        <div
+          ref={ref}
+          className={`fixed flex flex-col ${
+            showCart ? 'translate-x-0' : 'translate-x-full'
+          } w-full md:w-[27rem] top-0 h-full z-30 transition-transform duration-500 bg-white right-0 shadow-2xl`}
+        >
+          <div className="flex items-center justify-between p-6 border-b">
+            <span className="font-gilroyBold text-2xl">Cart</span>
+            <button
+              onClick={close}
+              className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
+            >
+              <img src={xBlack} alt="close" className="w-5" />
+            </button>
+          </div>
+
+          <div
+            className="flex-1 overflow-y-auto p-4 space-y-4"
+            id="scroll"
+          >
+            {cart.length > 0 ? (
+              cart.map(item => <Cart item={item} key={item.id} />)
+            ) : (
+              <div className="flex flex-col items-center justify-center h-full text-center">
+                <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+                  <img src={bag} className="w-12 opacity-50" alt="empty cart" />
                 </div>
+                <span className="font-gilroyBold text-xl text-gray-400">
+                  Your cart is empty
+                </span>
+                <span className="text-gray-400 mt-2">
+                  Add items to get started
+                </span>
               </div>
             )}
           </div>
+
+          {cart.length > 0 && (
+            <div className="p-6 border-t bg-gray-50">
+              <div className="space-y-3 mb-6">
+                <div className="flex justify-between text-gray-600">
+                  <span>Subtotal</span>
+                  <span>{formatPrice(totalPriceCart)}</span>
+                </div>
+                <div className="flex justify-between text-gray-600">
+                  <span>Tax (2%)</span>
+                  <span>{formatPrice(totalPriceCart * 0.02)}</span>
+                </div>
+                <div className="h-px bg-gray-300" />
+                <div className="flex justify-between font-gilroyBold text-xl">
+                  <span>Total</span>
+                  <span>{formatPrice(totalPriceCart * 1.02)}</span>
+                </div>
+              </div>
+
+              <button
+                onClick={() => {
+                  setShowCart(false);
+                  dispatch(clearCart([]));
+                }}
+                className="w-full bg-[#55e83b] hover:bg-[#45c42d] transition-colors duration-300 py-3 rounded-lg text-white font-gilroyBold text-lg"
+              >
+                Checkout
+              </button>
+            </div>
+          )}
         </div>
         <Routes>
           <Route
